@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Data</title>
 </head>
-<body>
+<body class="flex-column min-100-vh">
+    <header class="header">
+        <h1 class="app-title">How's the Weather there?</h1>
+        <p>This app will help us plan what we need to take for our trip, weather wise.</p>
+    </header>
+
+    <main class="flex-row justify-space-between">
+        <div class="col-12 col-md-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase">Search By City</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="username">City of Choice</label>
+              <input name="username" id="username" type="text" autofocus="true" class="form-input" />
+              <button type="submit" class="btn">Search</button>
+            </form>
+            <hr>
+          </div>
     
+          <div class="card">
+            <h3 class="card-header text-uppercase">Polpular Cities</h3>
+            <div class="card-body" id="language-buttons">
+              <button class="btn">Grantsville</button>
+              <button class="btn">Salt Lake City</button>
+              <button class="btn">Denver</button>
+              <button class="btn">Los Angles</button>
+              <button class="btn">Altanta</button>
+              <button class="btn">Boston</button>
+              <button class="btn">Seattle</button>
+              <button class="btn">New York</button>
+              <button class="btn">Moab</button>
+            </div>
+          </div>
+        </div>
+    </main>
+    
+
+    <script src="./assets/js/style.js"></script>
 </body>
 </html>
