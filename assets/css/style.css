@@ -1,3 +1,16 @@
+:root {
+  --primary: #ccdad1;
+  --secondary: #9caea9;
+  --tertiary: #788585;
+  --light-dark: #7861e2;
+  --dark: #6e63d3;
+  --border-radius: .3rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
 
 }
@@ -51,6 +64,11 @@ font-size: 1.5rem;
   .card-body {
     padding: 2.5%;
   }
+
+  /* FONT UTILS */
+.text-uppercase {
+  text-transform: uppercase;
+}
 
   /* FLEX CONTENT */
 .flex-row {
