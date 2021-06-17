@@ -8,12 +8,18 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Weather Data</title>
 </head>
 
 <body>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
 
   <div class="container-fluid">
     <div class="card flex-column min-80-vh">
@@ -22,17 +28,17 @@
         <p>This app will help us plan what we need to take for our trip, weather wise.</p>
       </div>
 
+      <!-- The container -->
       <div class="container">
         <div class="row">
           <div class="col">
-            <div class="card-body text-center">
-              <div class="card" style="width: 20rem;">
-                <div class="card-body"></div>
+            <div class="card-body text-center"></div>
+              <div class="card" style="width: 20rem;">              
                 <h3 class="card-header text-uppercase">Search By City</h3>
                 <form id="user-form">
-                  <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input"
+                  <input id="cityname" type="text" autofocus="true" class="form-input searchInput"
                     placeholder="Choose your City" />
-                  <button type="submit" class="btn">Search</button>
+                  <button id="sumbit" type="button" class="btn btn-outline-secondary searchButton">Search</button>
                 </form>
                 <hr>
               </div>
@@ -41,7 +47,11 @@
 
           <div class="card">
             <h3 class="card-header text-uppercase">Popular Cities</h3>
-            <div class="card-body" id="list-group">
+            <div class="card-body">
+              
+                <ul class="list-group">
+
+                </ul>
               <!-- <button class="btn">Grantsville</button>
               <button class="btn">Salt Lake City</button>
               <button class="btn">Moab</button> -->
@@ -65,7 +75,7 @@
         <div class="row">
           <div class="col mt-4">
             <div class="card pb-5 fiveDayCard pl-5">
-              <h5 class="card-title mt-2 mr-5">5-Day Forecast </h5>
+              <h5 class="card-title mt-2 mr-5">5-Day Weather </h5>
               <div class="row">
                 <div class="col fiveDayOne">
                 </div>

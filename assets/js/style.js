@@ -1,5 +1,5 @@
-var searchBtn = document.getElementById(".btn");
-var cityName = document.getElementById("#cityname");
+var searchButton = document.getElementById("submit");
+
 var apiKey = "49bc3a88d18916362c6dc4d44e861c92";
 
 // getting the data on the page
@@ -7,14 +7,14 @@ for (var i = 0; i < localStorage.length; i++) {
 
     var city = localStorage.getItem(i);
 
-    var cityName = $("#list-group").addclass("list-group-item");
+    var cityName = $(".list-group").find("li").addclass(".list-group-item");
 
     cityName.append("<li>" + city + "</li>");
 }
 
 var inputCount = 0;
 
-searchBtn.click(function () {
+searchButton.click(function() {
 
     var searchInput = $(".searchInput").val();
 
@@ -23,20 +23,20 @@ searchBtn.click(function () {
     var urlFiveDay = "https://api.openweathermap.org/data/2.5/forcast?q=" + searchInput + "&Appid=" + apiKey + "units=imperial";
 
     if (searchInput === "") {
-
+        console.log(searchInput);
     } else {
         $.ajax({
             url: urlCurrent,
             method: "GET"
         }).then(function (response) {
-            var cityName = $("#list-group").addclass("list-group-item");
+            var cityName = $(".list-group").addclass("list-group-item");
             cityName.append("<li>" + response.name + "</li>");
 
             var local = localStorage.setItem(inputCount, response.name);
             inputCount = inputCount + 1;
             // Start Current Weather append 
             var currentCity = $(".currentCity").append("<div>").addClass("card-body");
-            currentCard.empty();
+            currentCity.empty();
             var currentName = currentCity.append("<p>");
             // .addClass("card-text");
             currentCity.append(currentName);
