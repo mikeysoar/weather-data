@@ -7,8 +7,9 @@ for (var i = 0; i < localStorage.length; i++) {
 
     var city = localStorage.getItem(i);
 
-    var cityName = $(".list-group").find("li").addclass(".list-group-item");
-
+    var cityName = $(".list-group");
+        console.log(cityName);
+     var   
     cityName.append("<li>" + city + "</li>");
 }
 
