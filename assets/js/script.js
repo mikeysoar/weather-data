@@ -8,20 +8,20 @@ for (var i = 0; i < localStorage.length; i++) {
     var city = localStorage.getItem(i);
 
     var cityName = $(".list-group");
-        console.log(cityName);
-     var   
+    console.log(cityName);
     cityName.append("<li>" + city + "</li>");
 }
 
 var inputCount = 0;
 
-searchButton.click(function() {
-
+searchButton.addEventListener("click",function () {
+    console.log("I clicked")
     var searchInput = $(".searchInput").val();
+    console.log(searchInput);
 
-    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&Appid=" + apiKey + "units=imperial";
+    var urlCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + searchInput + "&units=imperial" + "&appid=" + apiKey;
 
-    var urlFiveDay = "https://api.openweathermap.org/data/2.5/forcast?q=" + searchInput + "&Appid=" + apiKey + "units=imperial";
+    // var urlFiveDay = "https://api.openweathermap.org/data/2.5/forcast?q=" + searchInput + "&appid=" + apiKey;
 
     if (searchInput === "") {
         console.log(searchInput);
@@ -30,6 +30,7 @@ searchButton.click(function() {
             url: urlCurrent,
             method: "GET"
         }).then(function (response) {
+            console.log(response);
             var cityName = $(".list-group").addclass("list-group-item");
             cityName.append("<li>" + response.name + "</li>");
 
@@ -73,26 +74,27 @@ searchButton.click(function() {
 
         });
 
-        $.ajax({
-            url: urlFiveDay,
-            method: "GET"
-        }).then(function (response) {
-            // Array for 5-days 
-            var day = [0, 8, 16, 24, 32];
-            var fiveDayCard = $(".fiveDayCard").addClass("card-body");
-            var fiveDayDiv = $(".fiveDayOne").addClass("card-text");
-            fiveDayDiv.empty();
-            // For each for 5 days
-            day.forEach(function (i) {
-                var FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
-                FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
+        // $.ajax({
+        //     url: urlFiveDay,
+        //     method: "GET"
+        // }).then(function (response) {
+        //     console.log(response);
+        //     // Array for 5-days 
+        //     var day = [0, 8, 16, 24, 32];
+        //     var fiveDayCard = $(".fiveDayCard").addClass("card-body");
+        //     var fiveDayDiv = $(".fiveDayOne").addClass("card-text");
+        //     fiveDayDiv.empty();
+        //     // For each for 5 days
+        //     day.forEach(function (i) {
+        //         var FiveDayTimeUTC1 = new Date(response.list[i].dt * 1000);
+        //         FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
 
-                fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
+        //         fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
 
 
-            })
+        //     })
 
-        });
+        // });
     }
 
 });
