@@ -11,8 +11,8 @@
   box-sizing: border-box;
 }
 
-.header {
-    background-color: royalblue;
+.card-header {   
+    background-color: royalblue;       
     color: seashell;
     text-align: center;
 }
@@ -50,7 +50,7 @@ font-size: 1.5rem;
     border-radius: var(--border-radius);
   }
   
-  .card-header {
+  .header {
     color: var(--primary);
     background-color: var(--dark);
     padding: 2.5%;
@@ -59,7 +59,7 @@ font-size: 1.5rem;
   
   .card-body {
     padding: 2.5%;
-    background-color: var(--light-dark);
+    /* background-color: var(--light-dark); */
   }
 
   /* FONT UTILS */
